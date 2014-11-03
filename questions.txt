@@ -1,0 +1,22 @@
+Q0: Why is this error being thrown?
+There is no pokemon model.
+
+Q1: How are the random Pokemon appearing? What is the common factor between all the possible Pokemon that appear?
+When using the command rake db:seed, the Pokemon are imported. These are put into a database in which the program randomly picks pokemon. The common factor between all possible pokemon is that they all do not have a trainer attached.
+
+Q2a: What does the following line in the help text do? Be specific about what "capture_path(id: @pokemon)" is doing. If you're having trouble, look at the Help section in the README.
+"<%= button_to "Throw a Pokeball!", capture_path(id: @pokemon), :class => "button medium", :method => :patch %>"
+
+
+Q2b: Change the URI pattern of the capture_path from "capture" to "asdf". Try capturing another Pokemon. Why does the route still work?
+
+
+Q3: What would you name your own Pokemon?
+
+
+Q4: What did you pass into the redirect_to? If it is a path, what did that path need? If it is not a path, why is it okay not to have a path here?
+I passed :back, because this goes back to the original spot, since the action should not display anything.
+
+Q5: Explain how putting this line "flash[:error] = @pokemon.errors.full_messages.to_sentence" shows error messages on your form.
+Hint: Take a look at views/layouts/application.html.erb. What does this file do, and what is it rendering? If you need to learn more about application.html.erb, Google is your friend!
+
