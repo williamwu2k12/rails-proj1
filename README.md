@@ -45,7 +45,7 @@ Throughout this project you will be creating a PokePortal, a mysterious realm wh
 
 #### Part 0: Setup PokePortal
 
-Clone the repo (run ```git clone git@github.com:rails-decal/proj1.git```) in your terminal. Cd into the directory, run ```bundle install --without production``` and migrate your database, then start your server. In localhost, you should see an error that says: "uninitialized constant HomeController::Pokemon". This is expected; let's fix it.
+Clone the repo (run ```git clone git@github.com:rails-decal/proj1.git```) in your terminal. Cd into the directory, run ```bundle install --without production``` and migrate your database, then start your server. (If you have trouble running the bundle install, try running ```rvm use 2.1.2``` in your terminal first). In localhost, you should see an error that says: "uninitialized constant HomeController::Pokemon". This is expected; let's fix it.
 
 In the [Google Form](https://docs.google.com/forms/d/1VhMa7Ml0PdLYEPztMRqoBMsHrJH3O_jiKSJoOKRBYlk/viewform?usp=send_form), answer Question 0.
 
@@ -58,7 +58,7 @@ In the [Google Form](https://docs.google.com/forms/d/1VhMa7Ml0PdLYEPztMRqoBMsHrJ
 - After you've generated the model, migrate it into the database.
 - Edit your Pokemon.rb and Trainer.rb file so that a Pokemon belongs to a Trainer and a Trainer can have many Pokemon.
 - Create a controller for your Pokemon model. This should be an empty controller for now, just make the file.
-- Create some starter Pokemon in the PokePortal with the seed file we've provided.
+- Seed your database with starter Pokemon with the seed file we've provided.
 
 Go to localhost - you should be able to see the home page and sign up now. Once you've logged in and go back to the home page, some wild Pokemon should appear with every refresh, however you can't capture them!
 
@@ -177,7 +177,7 @@ To learn more about what ```button_to``` actually does, read up on its [document
 
 #### Part 3: View other trainers' Pokemon
 
-Refer to the [live coding portion of Lecture 6](http://www.youtube.com/watch?v=h_nCL3nTagw).
+Refer to the [live coding portion of Lecture 6](https://github.com/rails-decal/lecture6).
 
 #### Part 4: Implement the ability to damage other trainers' Pokemon
 
@@ -186,6 +186,9 @@ For help with the redirect path, refer to [Lab 4](https://docs.google.com/a/berk
 #### Part 5: Create your own new Pokemon
 
 [Lab 4](https://docs.google.com/a/berkeley.edu/document/d/1eRJ8uGfZNohrTnSZgrrFF7X3mvcHdztRhDrfKV1jf9E) goes over everything you need to know about forms and routing for forms. If you haven't already done it, we strongly recommend doing it before tackling Part 5.
+
+If you want to designate a path that simple_form should go to after a submit, use this syntax:
+```simple_form_for @object, :url => prefix_path```
 
 For help with validations, you should read the [Rails documentation on validation](http://guides.rubyonrails.org/active_record_validations.html), specifically the sections for "presence" and "uniqueness". You can also Google and there should be many Stack Overflow posts to help you out.
 
