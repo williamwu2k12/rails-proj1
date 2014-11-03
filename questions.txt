@@ -2,21 +2,22 @@ Q0: Why is this error being thrown?
 There is no pokemon model.
 
 Q1: How are the random Pokemon appearing? What is the common factor between all the possible Pokemon that appear?
-When using the command rake db:seed, the Pokemon are imported. These are put into a database in which the program randomly picks pokemon. The common factor between all possible pokemon is that they all do not have a trainer attached.
+When using the command rake db:seed, the Pokemon are imported. These are put into a database in which the program randomly picks pokemon. The common factor between all possible pokemon is that they all do not have a trainer attached, and that they all came from the seed file.
 
 Q2a: What does the following line in the help text do? Be specific about what "capture_path(id: @pokemon)" is doing. If you're having trouble, look at the Help section in the README.
 "<%= button_to "Throw a Pokeball!", capture_path(id: @pokemon), :class => "button medium", :method => :patch %>"
-
+This creates a button with title "Throw a Pokeball!," of class "button medium", that sends a patch request. The capture_path(id: @pokemon) specifies the path upon clicking the button.
 
 Q2b: Change the URI pattern of the capture_path from "capture" to "asdf". Try capturing another Pokemon. Why does the route still work?
-
+I don't think you can change capture_path to asdf_path. I tried that and it didn't work. This is because I have a route that points /home/capture_path to the method pokemons#capture, which then redirects back after the capturing has executed. I'm not sure how to make it so that changing the URI pattern doesn't matter, but I'm guessing that in that instance it works because we never show a view, and so any path is fine (since we redirect immediately after).
 
 Q3: What would you name your own Pokemon?
-
+I've never actually played Pokemon. But uh. If I had to name a Pokemon and it looked like a Turkey or a hand, I'd call it Master Hand because of Super Smash Bros.
 
 Q4: What did you pass into the redirect_to? If it is a path, what did that path need? If it is not a path, why is it okay not to have a path here?
-I passed :back, because this goes back to the original spot, since the action should not display anything.
+I passed trainer_path(trainer), where trainer is a local variable pointing to Trainer.find(@pokemon.trainer_id) because we need to redirect back to the pokemon owner's (trainer's) page after we have finished damaging the Pokemon. This path needs the id of the trainer (an integer).
 
 Q5: Explain how putting this line "flash[:error] = @pokemon.errors.full_messages.to_sentence" shows error messages on your form.
 Hint: Take a look at views/layouts/application.html.erb. What does this file do, and what is it rendering? If you need to learn more about application.html.erb, Google is your friend!
+Flash passes temp objects between actions, which means that all flashes are taken care of before each page loads. Rails uses application.html.erb if there is no file in app/views/layouts that uses the same base name as the controller. As such, application.html.erb is the default layout for all controllers if there is no specified. This file renders the default page.
 
